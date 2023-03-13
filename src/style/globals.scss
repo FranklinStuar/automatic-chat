@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Quicksand:wght@400;500;700&display=swap');
+// font
+$font-primary: 'Quicksand', sans-serif;
+$font-secondary: 'Poppins', sans-serif;
+// size
+$text-title:18px;
+$text-content:14px;
+$text-small:12px;
+$img-avatar:48px;
+$img-close:24px;
+$img-button:64px;
+//colors
+$color-primary : #606060;
+$color-accent : #FFAB37;
+$color-dark-light: #f4f4f4;
+$color-green-dark: #68C453;
+$color-green-light: #EFFBEC;
+
+
+body{
+  color: $color-primary;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: $font-primary;
+}
