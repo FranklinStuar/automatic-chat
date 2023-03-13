@@ -1,7 +1,10 @@
+import React from 'react';
+import {Button} from "./../Button"
+
 function App() {
   return (
-    <div className="App">
-      <h1>Mucha información</h1>
+    <div>
+      <Button/>
     </div>
   );
 }
