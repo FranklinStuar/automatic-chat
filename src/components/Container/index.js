@@ -3,9 +3,12 @@ import {Header} from './../Header'
 import {Form} from './../Form'
 import {Conversation} from './../Conversation'
 
-const Container = () => {
+const Container = ({chatStatus}) => {
+  let classChatContainer = 'container-chat'
+  if(chatStatus)
+    classChatContainer += ' active';
   return (
-    <div className='container-chat'>
+    <div className={classChatContainer}>
       <Header/>
         <div className="body-chat">
           <Conversation
