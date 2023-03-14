@@ -1,6 +1,6 @@
 import React from 'react';
-import {Button} from "./../Button"
-import {Container} from "./../Container"
+import {Button} from "./components/Button"
+import {Container} from "./components/Container"
 
 function App() {
   const [chatStatus, setChatStatus] = React.useState(false)
