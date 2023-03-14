@@ -1,8 +1,11 @@
 import React from 'react'
+import { ChatContext } from '../../context/ChatContext';
 
-const Button = ({activeChat}) => {
+const Button = () => {
+  const {openChat} = React.useContext(ChatContext);
+
   return (
-    <div className='button-chat' onClick={activeChat}>
+    <div className='button-chat' onClick={openChat}>
       <img width={64} height={64} src="./img/logo.webp" alt="Automatic Chat - Logo" />
     </div>
   );

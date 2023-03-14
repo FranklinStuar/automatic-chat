@@ -2,37 +2,37 @@ import React from 'react'
 import {Header} from './../Header'
 import {Form} from './../Form'
 import {Conversation} from './../Conversation'
+import { ChatContext } from '../../context/ChatContext';
 
-const Container = ({chatStatus}) => {
+const Container = () => {
+  const {chatStatus, listMessages, authors} = React.useContext(ChatContext);
   let classChatContainer = 'container-chat'
+
   if(chatStatus)
     classChatContainer += ' active';
+  
+  const messages = listMessages.map(message => {
+    const author = authors.find((author) => author.type === message.author);
+    return {
+      content:message.content,
+      avatar: author.avatar,
+      name: author.name,
+      type: message.author === 'user' ? "chat-user" : "",
+    }
+  })
   return (
     <div className={classChatContainer}>
       <Header/>
         <div className="body-chat">
-          <Conversation
-            avatar="./img/logo.webp"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus eum dolorem mollitia vero, ut dolores."
-            name="Automatic Chat"
-          />
-          <Conversation
-            typeConversation="chat-user" 
-            avatar="./img/logo.webp"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus eum dolorem mollitia vero, ut dolores."
-            name="Automatic Chat"
-          />
-          <Conversation
-            avatar="./img/logo.webp"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus eum dolorem mollitia vero, ut dolores."
-            name="Automatic Chat"
-          />
-          <Conversation
-            typeConversation="chat-user" 
-            avatar="./img/logo.webp"
-            content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloribus eum dolorem mollitia vero, ut dolores."
-            name="Automatic Chat"
-          />
+          {messages.map((message, index) => (
+            <Conversation
+              key={index}
+              typeConversation={message.type}
+              avatar={message.avatar}
+              content={message.content}
+              name={message.name}
+            />
+          ))}
         </div>
         
       <Form/>
